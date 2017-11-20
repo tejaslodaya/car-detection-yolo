@@ -1,9 +1,18 @@
-YOLO ("you only look once") is a popular algoritm because it achieves high accuracy while also being able to run in real-time. This algorithm "only looks once" at the image in the sense that it requires only one forward propagation pass through the network to make predictions. After non-max suppression, it then outputs recognized objects together with the bounding boxes.
+# YOLO
+
+YOLO ("you only look once") is a popular algoritm because it achieves high accuracy while also being able to run in real-time, almost clocking 45 frames per second. A smaller version of the network, Fast YOLO, processes an astounding 155 frames per second while still achieving double the mAP of other real-time detectors. This algorithm "only looks once" at the image in the sense that it requires only one forward propagation pass through the network to make predictions. After non-max suppression, it then outputs recognized objects together with the bounding boxes.
+
+### Generic YOLO model
+----------------------
+
+<img src="https://raw.githubusercontent.com/tejaslodaya/car-detection-yolo/master/model_architecture.png?token=AKA30XxjIQ-Ni_3WBNvxI05MNVAdGpA7ks5aHD-swA%3D%3D" style="width:500px;height:250;">
+
+
+### YOLO model in car detection
+-------------------------------
 
 <img src="https://raw.githubusercontent.com/tejaslodaya/car-detection-yolo/master/fig1.png?token=AKA30bdj7ChcMX1lAt3y7lQg9ox7Js-Kks5aHDj8wA%3D%3D" style="width:500px;height:250;">
 
-### Model details
------------------
 - The **input** is a batch of images of shape (m, 608, 608, 3)
 - The **output** is a list of bounding boxes along with the recognized classes. Each bounding box is represented by 6 numbers `(p_c, b_x, b_y, b_h, b_w, c)` as explained above. If you expand `c` into an 80-dimensional vector, each bounding box is then represented by 85 numbers. 
 - The YOLO architecture if 5 anchor boxes are used is: IMAGE (m, 608, 608, 3) -> DEEP CNN -> ENCODING (m, 19, 19, 5, 85)
