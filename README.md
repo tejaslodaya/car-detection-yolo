@@ -31,7 +31,20 @@ To reduce the number of detected objects, apply two techniques:
   The steps to perform NMS are:
   1. Select the box that has the highest score.
   2. Compute its overlap with all other boxes, and remove boxes that overlap it more than iou_threshold.
-  3. Iterate until there's no more boxes with a lower score than the current selected box.
+  3. Iterate over all the boxes which have an overlap with the selected box until there are no more boxes with a lower score than the current selected box.
+  
+For example, suppose there are two boxes, box1 and box2. 
+p(box1) = 0.9
+p(box2) = 0.6
+iou(box1, box2) = 0
+
+Steps followed:
+1. Select box1 since it has the highest probability among the available scores.
+2. Since there's no overlap, box1 is selected.
+3. Iterating, box2 has the highest probability now. Select box2.
+4. End of the loop.
+
+For a more detailed discussion, follow [issue](https://github.com/tejaslodaya/car-detection-yolo/issues/1)
 
 ### Results
 -----------
